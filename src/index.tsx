@@ -1,17 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import "bulmaswatch/superhero/bulmaswatch.min.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+// import CodeCell from "./components/code-cell";
+import {Provider} from "react-redux";
+import {store} from "./state";
+// import TextEditor from "./components/text-editor";
+import ReactDom from "react-dom";
+import CellList from "./components/cell-list";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const App = () => {
+  return (
+    <Provider store={store}>
+      <div>
+        <CellList />
+      </div>
+    </Provider>
+    
+  );
+};
+
+ReactDom.render(<App />, document.getElementById("root"));
